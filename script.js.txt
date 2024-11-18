@@ -1,0 +1,21 @@
+// Scroll automático a la sección correspondiente
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Manejo del formulario de contacto
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    if (nombre && email && mensaje) {
+        document.getElementById('form-status').textContent = '¡Gracias por tu mensaje! Te contactaremos pronto.';
+        document.getElementById('form-status').style.color = 'green';
+        this.reset();
+    } else {
+        document.getElementById('form-status').textContent = 'Por favor, completa todos los campos.';
+        document.getElementById('form-status').style.color = 'red';
+    }
+});
